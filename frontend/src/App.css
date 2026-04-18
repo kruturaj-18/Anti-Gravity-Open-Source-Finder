@@ -1,0 +1,104 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-6);
+}
+
+/* Search CTA section */
+.search-cta-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+  padding: var(--space-6) var(--space-8);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.search-cta-wrap::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  opacity: 0.5;
+}
+
+.search-cta-btn {
+  font-size: 1rem;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-lg);
+  letter-spacing: 0.01em;
+  min-width: 200px;
+}
+
+.search-cta-icon { font-size: 1.1rem; }
+
+.search-refresh-btn {
+  font-size: 0.85rem;
+}
+
+/* Token status pill */
+.token-status-pill {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  cursor: default;
+  border: 1px solid;
+}
+
+.token-status-pill--active {
+  background: var(--success-dim);
+  color: var(--success);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.token-status-pill--inactive {
+  background: var(--warning-dim);
+  color: var(--warning);
+  border-color: rgba(245, 158, 11, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.token-status-pill--inactive:hover {
+  background: rgba(245, 158, 11, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .search-cta-wrap {
+    padding: var(--space-5);
+    gap: var(--space-3);
+  }
+
+  .search-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .token-status-pill {
+    margin-left: 0;
+    font-size: 0.7rem;
+  }
+}

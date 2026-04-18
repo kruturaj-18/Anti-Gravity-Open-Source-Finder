@@ -1,0 +1,200 @@
+.filter-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+  transition: border-color var(--transition-base);
+}
+
+.filter-panel:focus-within {
+  border-color: var(--border-card);
+}
+
+/* Toggle button */
+.filter-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-6);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.filter-toggle:hover {
+  color: var(--text-primary);
+  background: var(--primary-dim);
+}
+
+.filter-toggle--open { color: var(--text-primary); }
+
+.filter-toggle-icon { font-size: 1rem; }
+
+.filter-active-badge {
+  margin-left: auto;
+  padding: 2px var(--space-3);
+  background: var(--primary-dim);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-full);
+  color: var(--primary-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.filter-chevron {
+  margin-left: auto;
+  transition: transform var(--transition-base);
+  color: var(--text-muted);
+}
+
+.filter-chevron--open { transform: rotate(180deg); }
+
+/* Body */
+.filter-body {
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Row */
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.filter-row--inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.filter-label-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filter-value-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  background: var(--primary-dim);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-card);
+}
+
+.filter-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Range input */
+.filter-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid white;
+  box-shadow: 0 0 8px var(--primary-glow);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.filter-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.filter-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.filter-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Star option buttons */
+.filter-star-options {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.filter-option-btn {
+  padding: 6px var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all var(--transition-fast);
+}
+
+.filter-option-btn:hover {
+  background: var(--primary-dim);
+  border-color: var(--border-card);
+  color: var(--text-primary);
+}
+
+.filter-option-btn--active {
+  background: var(--primary-dim);
+  border-color: var(--primary);
+  color: var(--primary-light);
+  box-shadow: 0 0 8px var(--primary-glow);
+}
+
+/* Divider */
+.filter-divider {
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+/* Reset */
+.filter-reset-btn {
+  align-self: flex-start;
+  font-size: 0.8rem;
+}

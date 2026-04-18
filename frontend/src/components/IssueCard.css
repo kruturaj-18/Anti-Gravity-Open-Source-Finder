@@ -1,0 +1,226 @@
+.issue-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all var(--transition-base);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.issue-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-glow) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.issue-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 20px var(--primary-glow);
+  transform: translateY(-3px);
+}
+
+.issue-card:hover::before { opacity: 1; }
+
+/* Top row */
+.issue-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.issue-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.issue-card-repo {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  font-family: var(--font-mono);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.issue-card-repo:hover { color: var(--accent-light); }
+
+.issue-card-stars,
+.issue-card-comments {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.issue-card-stars { color: #f59e0b; }
+
+/* Bookmark */
+.issue-bookmark-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.issue-bookmark-btn:hover {
+  background: var(--primary-dim);
+  border-color: var(--border-card);
+  color: var(--primary-light);
+  transform: scale(1.05);
+}
+
+.issue-bookmark-btn--saved {
+  background: var(--primary-dim);
+  border-color: var(--primary);
+  color: var(--primary-light);
+  box-shadow: 0 0 8px var(--primary-glow);
+}
+
+/* Title */
+.issue-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.issue-title-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: color var(--transition-fast);
+  line-height: inherit;
+}
+
+.issue-title-btn:hover { color: var(--primary-light); }
+
+/* Repo description */
+.issue-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer */
+.issue-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.issue-card-labels {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.issue-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  white-space: nowrap;
+  border: 1px solid;
+  transition: all var(--transition-fast);
+}
+
+.issue-label--extra {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}
+
+.issue-card-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.issue-difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.issue-card-time {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Actions row */
+.issue-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.issue-feedback-given {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-right: auto;
+}
+
+.issue-open-btn { margin-left: auto; }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .issue-card { padding: var(--space-4); }
+  .issue-card-repo { max-width: 140px; }
+  .issue-card-time { display: none; }
+}

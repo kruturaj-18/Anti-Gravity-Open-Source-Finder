@@ -1,0 +1,125 @@
+.skill-slider-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.skill-slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.skill-slider-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.skill-current-badge {
+  padding: 4px var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid;
+  transition: all var(--transition-base);
+}
+
+.skill-slider-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-6);
+}
+
+/* Labels row */
+.skill-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.skill-label-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  padding: 0;
+  min-width: 70px;
+}
+
+.skill-label-btn:hover { color: var(--text-secondary); }
+.skill-label-btn--active { color: var(--text-primary) !important; }
+
+.skill-label-icon { font-size: 1.2rem; }
+
+.skill-label-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Track */
+.skill-slider-track-wrap { position: relative; }
+
+.skill-slider-track {
+  position: relative;
+  height: 6px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-2);
+}
+
+.skill-slider-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Range input */
+.skill-slider-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Custom thumb via adjacent element workaround - we overlay a div thumb */
+.skill-slider-track::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 12px var(--primary-glow);
+  pointer-events: none;
+  transition: left var(--transition-base);
+}
+
+@media (max-width: 480px) {
+  .skill-slider-card { padding: var(--space-6); }
+  .skill-label-text { font-size: 0.7rem; }
+}
